@@ -11,8 +11,11 @@ public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //autogen IDs
     Long id;
-    String name;
-    String description;
+    String teamName;
+    Double teamRank;
+    String playerName;
+    Double playerRank;
+    String playerRole;
 
     public Long getId() {
         return id;
@@ -22,19 +25,48 @@ public class Note {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTeamName() {
+        return teamName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
-    public String getDescription() {
-        return description;
+    public Double getTeamRank() {
+        return teamRank;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTeamRank(Double teamRank) {
+        this.teamRank = teamRank;
     }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public Double getPlayerRank() {
+        return playerRank;
+    }
+
+    public void setPlayerRank(Double playerRank) {
+        this.playerRank = playerRank;
+    }
+
+    public String getPlayerRole() {
+        return playerRole;
+    }
+
+    public void setPlayerRole(String playerRole) {
+        this.playerRole = playerRole;
+    }
+
+
+
+
+
 }
