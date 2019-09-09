@@ -6,16 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Note {
+public class Teams {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //autogen IDs
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
     Long id;
     String teamName;
     Double teamRank;
-    String playerName;
-    Double playerRank;
-    String playerRole;
 
     public Long getId() {
         return id;
@@ -41,32 +39,5 @@ public class Note {
         this.teamRank = teamRank;
     }
 
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-
-    public Double getPlayerRank() {
-        return playerRank;
-    }
-
-    public void setPlayerRank(Double playerRank) {
-        this.playerRank = playerRank;
-    }
-
-    public String getPlayerRole() {
-        return playerRole;
-    }
-
-    public void setPlayerRole(String playerRole) {
-        this.playerRole = playerRole;
-    }
-
-
-
-
-
 }
+
