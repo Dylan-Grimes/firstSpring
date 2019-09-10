@@ -15,13 +15,13 @@ public class PlayersController {
     private PlayersRepository repository;
 
     @RequestMapping(value = "players", method = RequestMethod.GET)
-    public List<Players> listAllNotes() {
+    public List<Players> listAllPlayers() {
         return repository.findAll();
     }
 
     @RequestMapping(value = "players", method = RequestMethod.POST)
-    public Players addPlayer(@RequestBody Players note) {
-        return repository.saveAndFlush(note);
+    public Players addPlayer(@RequestBody Players players) {
+        return repository.saveAndFlush(players);
     }
 
     @RequestMapping(value = "players/{id}", method = RequestMethod.GET)

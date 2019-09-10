@@ -16,7 +16,7 @@ public class TeamsController {
     private TeamsRepository repository;
 
     @RequestMapping(value = "teams", method = RequestMethod.GET)
-    public List<Teams> listAllNotes() {
+    public List<Teams> listAllTeams() {
         return repository.findAll();
     }
 
