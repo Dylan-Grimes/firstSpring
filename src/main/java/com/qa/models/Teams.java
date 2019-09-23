@@ -39,5 +39,10 @@ public class Teams {
         this.teamRank = teamRank;
     }
 
+
+    public void updateAll(Teams team){
+        this.teamName = team.getTeamName();
+        this.teamRank = team.getTeamRank();
+    }
 }
 
