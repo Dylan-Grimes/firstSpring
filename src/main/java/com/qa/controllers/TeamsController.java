@@ -37,11 +37,14 @@ public class TeamsController {
         return existing;
     }
 
-    @RequestMapping(value = "teams/deleteAllTeams", method = RequestMethod.DELETE)
-    public List<Teams> deleteAllTeams() {
-        List all = repository.findAll();
-        repository.delete(all);
-        return all;
+    @Transactional
+    @RequestMapping(value = "teams/{id}", method = RequestMethod.PUT)
+    public Teams updateTeams(@PathVariable Long id, @RequestBody Teams team){
+        Teams existing = repository.findOne(id);
+
+        existing.updateAll(team);
+
+        return repository.saveAndFlush(existing);
     }
 
 }
