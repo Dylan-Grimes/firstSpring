@@ -37,5 +37,11 @@ public class Teams {
         this.rating = rating;
     }
 
+    public void updateAll(Teams team){
+        this.name = team.getTeamName();
+        this.rating = team.getTeamRating();
+    }
+
+
 }
 
