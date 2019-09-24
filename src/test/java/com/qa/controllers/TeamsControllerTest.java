@@ -42,7 +42,7 @@ public class TeamsControllerTest {
         List<Teams> teamsList = new ArrayList<>();
         Teams teams = new Teams();
         teams.setTeamName("name");
-        teams.setTeamRank(0.0);
+        teams.setTeamRating(100);
         teamsList.add(teams);
 
 
