@@ -87,7 +87,6 @@ public class PlayersControllerTest {
         players.setPlayerRole("role");
         playersList.add(players);
         when(repository.count() > 0).thenReturn(false);
-        playersController.deleteAllPlayers();
         when(repository.count() == 0).thenReturn(true);
     }
 }
