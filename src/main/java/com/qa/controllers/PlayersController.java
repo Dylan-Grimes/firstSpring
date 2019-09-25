@@ -36,12 +36,14 @@ public class PlayersController {
         return existing;
     }
 
-    @RequestMapping(value = "players/deleteAllPlayers", method = RequestMethod.DELETE)
-    public List<Players> deleteAllPlayers() {
-        List all = repository.findAll();
-        repository.delete(all);
-        return all;
-        //return "all teams removed";
+    @Transactional
+    @RequestMapping(value = "players/{id}", method = RequestMethod.PUT)
+    public Players updatePlayers(@PathVariable Long id, @RequestBody Players player){
+        Players existing = repository.findOne(id);
+
+        existing.updateAll(player);
+
+        return repository.saveAndFlush(existing);
     }
 
 

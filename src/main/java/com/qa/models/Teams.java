@@ -12,8 +12,8 @@ public class Teams {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     Long id;
-    String teamName;
-    Double teamRank;
+    String name;
+    int rating;
 
     public Long getId() {
         return id;
@@ -24,25 +24,25 @@ public class Teams {
     }
 
     public String getTeamName() {
-        return teamName;
+        return name;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setTeamName(String name) {
+        this.name = name;
     }
 
-    public Double getTeamRank() {
-        return teamRank;
+    public int getTeamRating() {
+        return rating;
     }
 
-    public void setTeamRank(Double teamRank) {
-        this.teamRank = teamRank;
+    public void setTeamRating(int rating) {
+        this.rating = rating;
     }
 
 
     public void updateAll(Teams team){
-        this.teamName = team.getTeamName();
-        this.teamRank = team.getTeamRank();
+        this.name = team.getTeamName();
+        this.rating = team.getTeamRating();
     }
 }
 
