@@ -50,14 +50,5 @@ public class TeamsController {
         return repository.saveAndFlush(existing);
     }
 
-    @Transactional
-    @RequestMapping(value = "teams/{id}", method = RequestMethod.PUT)
-    public Teams updateTeams(@PathVariable Long id, @RequestBody Teams team){
-        Teams existing = repository.findOne(id);
-
-        existing.updateAll(team);
-
-        return repository.saveAndFlush(existing);
-    }
 
 }
