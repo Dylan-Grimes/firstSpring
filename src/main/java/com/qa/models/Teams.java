@@ -1,19 +1,19 @@
 package com.qa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "teams")
 public class Teams {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    Long id;
-    String name;
-    int rating;
+
+    private Long id;
+    private String name;
+    private int rating;
+
 
     public Long getId() {
         return id;
@@ -39,10 +39,10 @@ public class Teams {
         this.rating = rating;
     }
 
-
     public void updateAll(Teams team){
         this.name = team.getTeamName();
         this.rating = team.getTeamRating();
     }
+
 }
 
