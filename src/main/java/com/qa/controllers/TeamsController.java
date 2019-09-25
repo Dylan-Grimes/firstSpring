@@ -1,9 +1,11 @@
 package com.qa.controllers;
 
+import com.qa.models.Players;
 import com.qa.models.Teams;
 
 import com.qa.repository.TeamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,6 +44,16 @@ public class TeamsController {
         List all = repository.findAll();
         repository.delete(all);
         return all;
+    }
+
+    @Transactional
+    @RequestMapping(value = "teams/{id}", method = RequestMethod.PUT)
+    public Teams updateTeams(@PathVariable Long id, @RequestBody Teams team){
+        Teams existing = repository.findOne(id);
+
+        existing.updateAll(team);
+
+        return repository.saveAndFlush(existing);
     }
 
 }
