@@ -42,7 +42,7 @@ public class PlayersControllerTest {
         List<Players> playersList = new ArrayList<>();
         Players players = new Players();
         players.setPlayerName("name");
-        players.setPlayerRank(0.0);
+        players.setPlayerRating(0);
         players.setPlayerRole("role");
         playersList.add(players);
 
@@ -83,7 +83,7 @@ public class PlayersControllerTest {
         List<Players> playersList = new ArrayList<>();
         Players players = new Players();
         players.setPlayerName("name");
-        players.setPlayerRank(0.0);
+        players.setPlayerRating(0);
         players.setPlayerRole("role");
         playersList.add(players);
         when(repository.count() > 0).thenReturn(false);

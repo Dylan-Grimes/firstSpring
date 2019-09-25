@@ -3,6 +3,7 @@ package com.qa.controllers;
 import com.qa.models.Players;
 import com.qa.repository.PlayersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +26,7 @@ public class PlayersController {
     }
 
     @RequestMapping(value = "players/{id}", method = RequestMethod.GET)
-    public Players getPlayer(@PathVariable Long id) {
-        return repository.findOne(id);
+    public Players getPlayer(@PathVariable Long id) { return repository.findOne(id);
     }
 
     @RequestMapping(value = "players/{id}", method = RequestMethod.DELETE)
@@ -36,12 +36,15 @@ public class PlayersController {
         return existing;
     }
 
-    @RequestMapping(value = "players/deleteAllPlayers", method = RequestMethod.DELETE)
-    public List<Players> deleteAllPlayers() {
-        List all = repository.findAll();
-        repository.delete(all);
-        return all;
-        //return "all teams removed";
+    @Transactional
+    @RequestMapping(value = "players/{id}", method = RequestMethod.PUT)
+    public Players updatePlayers(@PathVariable Long id, @RequestBody Players player){
+        Players existing = repository.findOne(id);
+
+        existing.updateAll(player);
+
+        return repository.saveAndFlush(existing);
     }
+
 
 }

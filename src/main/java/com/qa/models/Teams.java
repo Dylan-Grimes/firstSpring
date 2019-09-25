@@ -9,9 +9,11 @@ public class Teams {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
+
     private Long id;
     private String name;
     private int rating;
+
 
     public Long getId() {
         return id;
@@ -41,7 +43,6 @@ public class Teams {
         this.name = team.getTeamName();
         this.rating = team.getTeamRating();
     }
-
 
 }
 

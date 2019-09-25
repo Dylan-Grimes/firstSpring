@@ -11,9 +11,9 @@ public class Players {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String playerName;
-    Double playerRank;
-    String playerRole;
+    String name;
+    int rating;
+    String role;
 
     public Long getId() {
         return id;
@@ -24,31 +24,33 @@ public class Players {
     }
 
     public String getPlayerName() {
-        return playerName;
+        return name;
     }
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public void setPlayerName(String name) {
+        this.name = name;
     }
 
-    public Double getPlayerRank() {
-        return playerRank;
+    public int getPlayerRating() {
+        return rating;
     }
 
-    public void setPlayerRank(Double playerRank) {
-        this.playerRank = playerRank;
+    public void setPlayerRating(int rating) {
+        this.rating = rating;
     }
 
     public String getPlayerRole() {
-        return playerRole;
+        return role;
     }
 
     public void setPlayerRole(String playerRole) {
-        this.playerRole = playerRole;
+        this.role = role;
     }
 
 
-
-
-
+    public void updateAll(Players player){
+        this.name = player.getPlayerName();
+        this.rating = player.getPlayerRating();
+        this.role = player.getPlayerRole();
+    }
 }
