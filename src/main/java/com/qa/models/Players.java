@@ -12,9 +12,10 @@ public class Players {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
+    String team;
     int rating;
     String role;
-    String team;
+
 
     public Long getId() {
         return id;
@@ -30,6 +31,14 @@ public class Players {
 
     public void setPlayerName(String name) {
         this.name = name;
+    }
+
+    public String getPlayerTeam() {
+        return team;
+    }
+
+    public void setPlayerTeam(String playerTeam) {
+        this.team = team;
     }
 
     public int getPlayerRating() {
@@ -48,20 +57,14 @@ public class Players {
         this.role = role;
     }
 
-    public String getPlayerTeam() {
-        return team;
-    }
 
-    public void setPlayerTeam(String playerTeam) {
-        this.team = team;
-    }
 
 
     public void updateAll(Players player){
         this.name = player.getPlayerName();
+        this.team = player.getPlayerTeam();
         this.rating = player.getPlayerRating();
         this.role = player.getPlayerRole();
-        this.team = player.getPlayerTeam();
     }
 }
 
