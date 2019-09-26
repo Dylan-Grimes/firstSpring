@@ -6,10 +6,10 @@ public class AppTest
 {
     App app;
 
-//    @Test
-//    public void shouldAnswerWithTrue()
-//    {
-//        app = new App();
-//        app.main(new String[]{});
-//    }
+    @Test
+    public void shouldAnswerWithTrue()
+    {
+        app = new App();
+        app.main(new String[]{});
+    }
 }

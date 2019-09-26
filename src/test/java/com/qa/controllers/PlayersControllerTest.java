@@ -2,6 +2,7 @@ package com.qa.controllers;
 
 
 import com.qa.models.Players;
+import com.qa.models.Teams;
 import com.qa.repository.PlayersRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,12 +31,6 @@ public class PlayersControllerTest {
 
     @Mock
     private PlayersRepository repository;
-
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
 
     @Test
     public void testGetAllPlayers() {
@@ -76,6 +71,21 @@ public class PlayersControllerTest {
         repository.findOne(1L);
         playersController.deletePlayer(1L);
         when(!repository.exists(1L)).thenReturn(true);
+    }
+
+    @Test
+    public void testUpdatePlayer() {
+        Players player = new Players();
+        player.setPlayerName("person1");
+
+        assertEquals(player.getPlayerName(),"person1");
+        player.setPlayerName("person2");
+
+        when(repository.findOne(1L)).thenReturn(player);
+        playersController.updatePlayers(1L, player);
+        when(repository.saveAndFlush(player)).thenReturn(player);
+
+        assertEquals(player.getPlayerName(), "person2");
     }
 
 

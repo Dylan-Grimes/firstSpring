@@ -18,6 +18,7 @@ import java.util.List;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.same;
 import static org.mockito.Mockito.when;
 
@@ -68,6 +69,21 @@ public class TeamsControllerTest {
         repository.findOne(1L);
         teamsController.deleteTeam(1L);
         when(!repository.exists(1L)).thenReturn(true);
+    }
+
+    @Test
+    public void testUpdateTeams() {
+        Teams team = new Teams();
+        team.setTeamName("person1");
+
+        assertEquals(team.getTeamName(),"person1");
+        team.setTeamName("person2");
+
+        when(repository.findOne(1L)).thenReturn(team);
+        teamsController.updateTeams(1L, team);
+        when(repository.saveAndFlush(team)).thenReturn(team);
+
+        assertEquals(team.getTeamName(), "person2");
     }
 
 
