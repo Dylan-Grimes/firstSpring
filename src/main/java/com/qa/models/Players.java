@@ -37,7 +37,7 @@ public class Players {
         return team;
     }
 
-    public void setPlayerTeam(String playerTeam) {
+    public void setPlayerTeam(String team) {
         this.team = team;
     }
 
@@ -53,7 +53,7 @@ public class Players {
         return role;
     }
 
-    public void setPlayerRole(String playerRole) {
+    public void setPlayerRole(String role) {
         this.role = role;
     }
 
