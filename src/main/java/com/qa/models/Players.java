@@ -14,6 +14,7 @@ public class Players {
     String name;
     int rating;
     String role;
+    String team;
 
     public Long getId() {
         return id;
@@ -47,10 +48,20 @@ public class Players {
         this.role = role;
     }
 
+    public String getPlayerTeam() {
+        return team;
+    }
+
+    public void setPlayerTeam(String playerTeam) {
+        this.team = team;
+    }
+
 
     public void updateAll(Players player){
         this.name = player.getPlayerName();
         this.rating = player.getPlayerRating();
         this.role = player.getPlayerRole();
+        this.team = player.getPlayerTeam();
     }
 }
+
