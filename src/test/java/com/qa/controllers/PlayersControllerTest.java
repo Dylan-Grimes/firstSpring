@@ -78,15 +78,5 @@ public class PlayersControllerTest {
         when(!repository.exists(1L)).thenReturn(true);
     }
 
-    @Test
-    public void testDeleteAllPlayers() {
-        List<Players> playersList = new ArrayList<>();
-        Players players = new Players();
-        players.setPlayerName("name");
-        players.setPlayerRating(0);
-        players.setPlayerRole("role");
-        playersList.add(players);
-        when(repository.count() > 0).thenReturn(false);
-        when(repository.count() == 0).thenReturn(true);
-    }
+
 }

@@ -31,12 +31,6 @@ public class TeamsControllerTest {
     @Mock
     private TeamsRepository repository;
 
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-
     @Test
     public void testGetAllTeams() {
         List<Teams> teamsList = new ArrayList<>();
@@ -76,9 +70,6 @@ public class TeamsControllerTest {
         when(!repository.exists(1L)).thenReturn(true);
     }
 
-    @Test
-    public void testDeleteAllTeams() {
 
-    }
 
 }
